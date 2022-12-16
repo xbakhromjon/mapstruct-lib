@@ -1,13 +1,16 @@
 package uz.bakhromjon.mapstructlib.manager;
 
-import org.mapstruct.Mapper;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
 /**
  * @author : Bakhromjon Khasanboyev
  **/
-@Mapper
-public interface ManagerMapper {
+@Mapper(componentModel = "spring")
+public interface ManagerMapper extends EnumMapper {
     ManagerMapper INSTANCE = Mappers.getMapper(ManagerMapper.class);
-    ManagerDTO convert(Manager manager);
+
+    @Mapping(source = "name", target = "name", ignore = true)
+    ManagerDTO convertToManagerDTO(Manager manager);
+
 }

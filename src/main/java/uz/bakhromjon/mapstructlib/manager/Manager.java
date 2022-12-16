@@ -13,4 +13,5 @@ import lombok.ToString;
 public class Manager {
     private int id;
     private String name;
+    private EManager eManager;
 }
